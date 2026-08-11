@@ -33,4 +33,16 @@
 .shop .obj-2 { background-image: url("/games/lingyang/19_product_show.webp"); }
 .shop .obj-3 { background-image: url("/games/huisu/15_guardian_three_beasts.webp"); }
 @media (hover: hover) { .shop .product-card { transition: transform .25s ease, box-shadow .25s ease; } .shop .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(25,53,42,.16); } }
+/* User-provided brochure boards become the visual source of truth for the three core modules. */
+.museum .paper-note { min-height: 230px; position: relative; overflow: hidden; padding-right: clamp(230px, 35vw, 430px); background: #183d36; }
+.museum .paper-note::after { content: ""; position: absolute; inset: 0 0 0 auto; width: min(48%, 440px); background: url("/reference/culture-brochure.png") center/cover no-repeat; opacity: .94; }
+.shop .product-grid::before { content: ""; grid-column: 1 / -1; display: block; min-height: 355px; border: 1px solid #d6c6aa; background: #fffaf0 url("/reference/product-matrix.png") center / contain no-repeat; box-shadow: 0 14px 30px rgba(50,42,27,.08); }
+.map-page .map-layout { grid-template-columns: minmax(0, 1.2fr) minmax(290px, .8fr); align-items: stretch; }
+.map-page .map-board { min-height: 610px; background: #fbf6eb url("/reference/map-guide.png") center / contain no-repeat; border: 1px solid #c5ad86; border-radius: 8px; box-shadow: 0 14px 34px rgba(52,42,25,.13); }
+.map-page .map-board::before { background: linear-gradient(90deg, transparent 65%, rgba(255,250,240,.05)); opacity: 1; }
+.map-page .map-mountain, .map-page .route-line, .map-page .route-label { display: none; }
+.map-page .map-spot { border-radius: 6px; border-color: #b78b53; background: rgba(255,251,241,.94); color: #183d36; font-weight: 800; box-shadow: 0 4px 12px rgba(49,39,22,.17); }
+.map-page .spot-1 { left: 72%; top: 31%; }.map-page .spot-2 { left: 77%; top: 43%; }.map-page .spot-3 { left: 70%; top: 56%; }.map-page .spot-4 { left: 57%; top: 67%; }.map-page .spot-5 { left: 51%; top: 77%; }.map-page .spot-6 { right: 5%; top: 25%; }
+@media (max-width: 850px) { .museum .paper-note { min-height: 180px; padding-right: 44%; } .shop .product-grid::before { min-height: 260px; } .map-page .map-board { min-height: 580px; } }
+@media (max-width: 520px) { .museum .paper-note { padding-right: 42%; } .museum .paper-note::after { width: 48%; } .shop .product-grid::before { min-height: 185px; } .map-page .map-board { min-height: 490px; background-size: 120% auto; } .map-page .map-spot { font-size: 10px; padding: 4px 6px; } }
 @media (max-width: 680px) { .museum .story-card::before { height: 116px; } }
