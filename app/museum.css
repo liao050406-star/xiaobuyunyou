@@ -24,4 +24,13 @@
 .museum .round-icon { margin-top: -2.9rem; position: relative; border: 4px solid #f7f0de; box-shadow: 0 5px 14px rgba(24,59,47,.15); }
 .game-card { box-shadow: 0 15px 34px rgba(25,53,42,.11); }
 .game-card img { filter: saturate(.9) contrast(1.02); }
+.shop .product-card { overflow: hidden; box-shadow: 0 14px 32px rgba(25,53,42,.1); }
+.shop .product-object { position: relative; overflow: hidden; isolation: isolate; background: #e9debd center/cover no-repeat; }
+.shop .product-object::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(248,240,214,.25), rgba(20,55,44,.42)); z-index: -1; }
+.shop .product-object span { position: relative; padding: .55rem .75rem; border-radius: .3rem; background: rgba(253,248,233,.84); box-shadow: 0 3px 12px rgba(25,53,42,.16); }
+.shop .obj-0 { background-image: url("/games/lingyang/03_story_scroll.webp"); }
+.shop .obj-1 { background-image: url("/games/lingyang/17_guardian_token.webp"); }
+.shop .obj-2 { background-image: url("/games/lingyang/19_product_show.webp"); }
+.shop .obj-3 { background-image: url("/games/huisu/15_guardian_three_beasts.webp"); }
+@media (hover: hover) { .shop .product-card { transition: transform .25s ease, box-shadow .25s ease; } .shop .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(25,53,42,.16); } }
 @media (max-width: 680px) { .museum .story-card::before { height: 116px; } }
