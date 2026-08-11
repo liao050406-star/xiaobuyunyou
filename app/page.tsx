@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import "./museum.css";
 
 type Section = "home" | "museum" | "map" | "games" | "shop" | "experience";
 

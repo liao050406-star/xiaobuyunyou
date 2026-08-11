@@ -1,0 +1,27 @@
+/* Image-led finishing layer: sourced from the project's own interactive game art. */
+.hero-art { overflow: hidden; isolation: isolate; }
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(248,240,214,.34), rgba(24,59,47,.12)), url("/games/lingyang/18_final_bg.webp") center/cover;
+  opacity: .52;
+  z-index: -1;
+}
+.museum .story-card { overflow: hidden; position: relative; }
+.museum .story-card::before {
+  content: "";
+  display: block;
+  height: 132px;
+  margin: -1.55rem -1.55rem 1.1rem;
+  background: center/cover no-repeat;
+  filter: saturate(.8) contrast(.96);
+}
+.museum .story-card:nth-child(1)::before { background-image: linear-gradient(rgba(19,59,49,.16), rgba(19,59,49,.16)), url("/games/lingyang/08_old_courtyard_bg.webp"); }
+.museum .story-card:nth-child(2)::before { background-image: linear-gradient(rgba(19,59,49,.12), rgba(19,59,49,.12)), url("/games/huisu/03_level1_bg.webp"); }
+.museum .story-card:nth-child(3)::before { background-image: linear-gradient(rgba(19,59,49,.1), rgba(19,59,49,.1)), url("/games/huisu/13_repair_success.webp"); }
+.museum .story-card:nth-child(4)::before { background-image: linear-gradient(rgba(19,59,49,.12), rgba(19,59,49,.12)), url("/games/lingyang/13_mountain_top_bg.webp"); }
+.museum .round-icon { margin-top: -2.9rem; position: relative; border: 4px solid #f7f0de; box-shadow: 0 5px 14px rgba(24,59,47,.15); }
+.game-card { box-shadow: 0 15px 34px rgba(25,53,42,.11); }
+.game-card img { filter: saturate(.9) contrast(1.02); }
+@media (max-width: 680px) { .museum .story-card::before { height: 116px; } }
