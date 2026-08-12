@@ -66,8 +66,9 @@ export default function Home() {
       {section === "museum" && <section className="page museum">
         <p className="eyebrow">小㘵文化馆</p><h2>把散落在村里的故事，<br/>收藏进一次可抵达的相遇。</h2>
         <p className="intro">古建筑、岭南灰塑、村落记忆与羚羊山传说，构成小㘵文化馆的四个展厅。线下扫描建筑二维码，也能回到这里继续听故事。</p>
+        <div className="museum-guide"><div><b>01</b><span>看一棵树</span><small>从古榕的根系，读村落的日常记忆。</small></div><div><b>02</b><span>望一座山</span><small>沿羚羊山的传说，理解守护与共生。</small></div><div><b>03</b><span>认一片灰塑</span><small>在屋脊瑞兽中寻找福、祥、寿的寓意。</small></div><div><b>04</b><span>进一座祠堂</span><small>从砖瓦门楣，触摸岭南建筑文脉。</small></div></div>
         <div className="story-grid">{stories.map((story) => <article className="story-card" key={story.title}><div className="round-icon">{story.icon}</div><p>{story.tag}</p><h3>{story.title}</h3><span>{story.text}</span><button onClick={() => { setActiveSpot(story.title); go("map"); }}>在地图中查看 →</button></article>)}</div>
-        <div className="paper-note"><b>纸质宣传手册 × 线上文化展厅</b><span>一册带走 · 一码云游 · 一路寻迹</span></div>
+        <div className="museum-footer"><div><b>线下扫码，线上续游</b><span>到达古榕、祠堂、灰塑点位后，可用二维码解锁图文故事与互动任务。</span></div><button className="primary" onClick={() => go("map")}>打开云游地图 →</button></div>
       </section>}
 
       {section === "map" && <section className="page map-page">

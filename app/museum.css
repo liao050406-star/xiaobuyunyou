@@ -12,16 +12,26 @@
 .museum .story-card::before {
   content: "";
   display: block;
-  height: 132px;
+  height: 210px;
   margin: -1.55rem -1.55rem 1.1rem;
   background: center/cover no-repeat;
   filter: saturate(.8) contrast(.96);
 }
-.museum .story-card:nth-child(1)::before { background-image: linear-gradient(rgba(19,59,49,.16), rgba(19,59,49,.16)), url("/games/lingyang/08_old_courtyard_bg.webp"); }
-.museum .story-card:nth-child(2)::before { background-image: linear-gradient(rgba(19,59,49,.12), rgba(19,59,49,.12)), url("/games/huisu/03_level1_bg.webp"); }
-.museum .story-card:nth-child(3)::before { background-image: linear-gradient(rgba(19,59,49,.1), rgba(19,59,49,.1)), url("/games/huisu/13_repair_success.webp"); }
-.museum .story-card:nth-child(4)::before { background-image: linear-gradient(rgba(19,59,49,.12), rgba(19,59,49,.12)), url("/games/lingyang/13_mountain_top_bg.webp"); }
+.museum .story-card:nth-child(1)::before { background-image: linear-gradient(rgba(19,59,49,.1), rgba(19,59,49,.1)), url("/museum-assets/ancient-banyan.png"); }
+.museum .story-card:nth-child(2)::before { background-image: linear-gradient(rgba(19,59,49,.08), rgba(19,59,49,.08)), url("/museum-assets/ancestral-hall.png"); }
+.museum .story-card:nth-child(3)::before { background-image: linear-gradient(rgba(19,59,49,.06), rgba(19,59,49,.06)), url("/museum-assets/gray-plastic-roof.png"); }
+.museum .story-card:nth-child(4)::before { background-image: linear-gradient(rgba(19,59,49,.08), rgba(19,59,49,.08)), url("/museum-assets/lingyang-mountain.png"); }
 .museum .round-icon { margin-top: -2.9rem; position: relative; border: 4px solid #f7f0de; box-shadow: 0 5px 14px rgba(24,59,47,.15); }
+.museum .story-card::after { content: "点击进入文化导览"; margin-top: 16px; padding-top: 12px; width: 100%; border-top: 1px solid rgba(24,61,54,.12); color: #a54e38; font-size: 12px; letter-spacing: .08em; }
+.museum .story-card button { position: relative; z-index: 1; }
+@media (hover: hover) { .museum .story-card { transition: transform .24s ease, box-shadow .24s ease; } .museum .story-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(28,50,39,.13); } .museum .story-card:hover::before { filter: saturate(1.05) contrast(1.03); } }
+.museum-guide { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 32px 0 8px; background: #d8cbb8; border: 1px solid #d8cbb8; }
+.museum-guide > div { min-height: 128px; padding: 18px; display: grid; gap: 4px; background: #fffaf0; }
+.museum-guide b { color: #a54e38; font-size: 13px; letter-spacing: .12em; }.museum-guide span { font-weight: 800; font-size: 19px; }.museum-guide small { color: #617068; line-height: 1.55; }
+.museum-footer { margin-top: 34px; padding: 28px 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: #183d36; color: #fff; border-radius: 16px; }
+.museum-footer > div { display: grid; gap: 6px; }.museum-footer b { font-size: 20px; }.museum-footer span { color: #d9c9af; line-height: 1.7; }.museum-footer .primary { background: #e7b35c; color: #183d36; border-color: #e7b35c; white-space: nowrap; }
+@media (max-width: 850px) { .museum-guide { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .museum-guide { grid-template-columns: 1fr; } .museum-footer { display: grid; } .museum-footer .primary { width: fit-content; } }
 .game-card { box-shadow: 0 15px 34px rgba(25,53,42,.11); }
 .game-card img { filter: saturate(.9) contrast(1.02); }
 .shop .product-card { overflow: hidden; box-shadow: 0 14px 32px rgba(25,53,42,.1); }
@@ -33,7 +43,7 @@
 .shop .obj-2 { background-image: url("/product-assets/explorer-passport.png"); }
 .shop .obj-3 { background-image: url("/product-assets/postcards-stickers.png"); }
 @media (hover: hover) { .shop .product-card { transition: transform .25s ease, box-shadow .25s ease; } .shop .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(25,53,42,.16); } }
-@media (max-width: 680px) { .museum .story-card::before { height: 116px; } }
+@media (max-width: 680px) { .museum .story-card::before { height: 170px; } }
 
 .map-page .map-layout { grid-template-columns: minmax(0, 1.2fr) minmax(290px, .8fr); align-items: stretch; }
 .map-page .map-board { min-height: 580px; background: #e8efe3 url("/experience-assets/xiaobu-area-map.png") center / contain no-repeat; border: 8px solid #e9ddc8; border-radius: 18px; box-shadow: 0 18px 38px rgba(54,45,28,.14); }
