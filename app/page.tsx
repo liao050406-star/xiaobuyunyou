@@ -15,10 +15,10 @@ const nav: { id: Section; label: string }[] = [
 ];
 
 const stories = [
-  { icon: "榕", title: "古榕树", tag: "村落记忆", text: "年轮记录着小㘵村的日常，也为来访者留下最安静的停留处。" },
-  { icon: "祠", title: "古祠堂", tag: "建筑文脉", text: "青砖、屋脊与门楣之间，保存着村落敬祖睦族的共同记忆。" },
-  { icon: "塑", title: "岭南灰塑", tag: "非遗技艺", text: "蝙蝠、麒麟、仙鹤等纹样，把福、祥、寿写在岭南屋脊之上。" },
-  { icon: "山", title: "羚羊山", tag: "山海传说", text: "山路通往远望，也通往灵羊守护山村的故事。" },
+  { icon: "榕", title: "古榕树", tag: "村落记忆", text: "年轮记录着小㘵村的日常，也为来访者留下最安静的停留处。", image: "/museum-assets/ancient-banyan.png", detail: "盘根与垂须把一处村中空地围成天然会客厅。它既是遮阴的树，也是村民日常相遇、讲述往事的记忆坐标。", clue: "寻找石板路与树根交会的位置，完成“村落记忆”打卡。" },
+  { icon: "祠", title: "古祠堂", tag: "建筑文脉", text: "青砖、屋脊与门楣之间，保存着村落敬祖睦族的共同记忆。", image: "/museum-assets/ancestral-hall.png", detail: "门楼、砖墙与檐口共同构成岭南传统建筑的秩序。进入祠堂，不只是在看一座建筑，也是在阅读村落的家族记忆。", clue: "观察门楣、屋脊和青砖的层次，找到建筑文脉线索。" },
+  { icon: "塑", title: "岭南灰塑", tag: "非遗技艺", text: "蝙蝠、麒麟、仙鹤等纹样，把福、祥、寿写在岭南屋脊之上。", image: "/museum-assets/gray-plastic-roof.png", detail: "灰塑将石灰、纸筋等材料塑成飞禽瑞兽与花卉故事。屋脊上的蝙蝠、麒麟、仙鹤，分别寄托福气、祥瑞与长寿。", clue: "点击后可前往《灰塑寻踪》，继续辨认三种瑞兽纹样。" },
+  { icon: "山", title: "羚羊山", tag: "山海传说", text: "山路通往远望，也通往灵羊守护山村的故事。", image: "/museum-assets/lingyang-mountain.png", detail: "山路把古村、林地与远望串联起来。灵羊传说并非遥远的神话，而是一种关于山村共生、生态守护的想象。", clue: "沿徒步线抵达登山入口，解锁“灵羊守护者”任务。" },
 ];
 
 const products = [
@@ -39,6 +39,7 @@ export default function Home() {
   const [section, setSection] = useState<Section>("home");
   const [activeSpot, setActiveSpot] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [activeMuseum, setActiveMuseum] = useState(0);
 
   const go = (id: Section) => { setSection(id); setSubmitted(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const openBooking = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSubmitted(true); };
@@ -67,7 +68,9 @@ export default function Home() {
         <p className="eyebrow">小㘵文化馆</p><h2>把散落在村里的故事，<br/>收藏进一次可抵达的相遇。</h2>
         <p className="intro">古建筑、岭南灰塑、村落记忆与羚羊山传说，构成小㘵文化馆的四个展厅。线下扫描建筑二维码，也能回到这里继续听故事。</p>
         <div className="museum-guide"><div><b>01</b><span>看一棵树</span><small>从古榕的根系，读村落的日常记忆。</small></div><div><b>02</b><span>望一座山</span><small>沿羚羊山的传说，理解守护与共生。</small></div><div><b>03</b><span>认一片灰塑</span><small>在屋脊瑞兽中寻找福、祥、寿的寓意。</small></div><div><b>04</b><span>进一座祠堂</span><small>从砖瓦门楣，触摸岭南建筑文脉。</small></div></div>
-        <div className="story-grid">{stories.map((story) => <article className="story-card" key={story.title}><div className="round-icon">{story.icon}</div><p>{story.tag}</p><h3>{story.title}</h3><span>{story.text}</span><button onClick={() => { setActiveSpot(story.title); go("map"); }}>在地图中查看 →</button></article>)}</div>
+        <div className="museum-gallery" aria-label="四个文化展厅入口">{stories.map((story, index) => <button key={story.title} className={activeMuseum === index ? "selected" : ""} onClick={() => setActiveMuseum(index)}><img src={story.image} alt={`${story.title}展厅入口`}/><span>{story.tag}</span><b>{story.title}</b><small>点击听故事</small></button>)}</div>
+        <section className="story-stage"><div className="stage-art"><img src={stories[activeMuseum].image} alt={stories[activeMuseum].title}/><span>{stories[activeMuseum].icon}</span></div><div className="stage-copy"><p>{stories[activeMuseum].tag}</p><h3>{stories[activeMuseum].title}</h3><strong>展板故事</strong><div className="stage-text"><p>{stories[activeMuseum].detail}</p><p>{stories[activeMuseum].clue}</p></div><div className="stage-actions"><button className="primary" onClick={() => { setActiveSpot(stories[activeMuseum].title); go("map"); }}>在地图中寻迹 →</button>{activeMuseum === 2 ? <button className="outline" onClick={() => go("games")}>进入灰塑寻踪</button> : <button className="outline" onClick={() => go(activeMuseum === 3 ? "experience" : "map")}>{activeMuseum === 3 ? "查看徒步体验" : "继续云游"}</button>}</div></div></section>
+        <div className="story-grid">{stories.map((story, index) => <article className="story-card" key={story.title}><div className="round-icon">{story.icon}</div><p>{story.tag}</p><h3>{story.title}</h3><span>{story.text}</span><button onClick={() => setActiveMuseum(index)}>阅读展板故事 →</button></article>)}</div>
         <div className="museum-footer"><div><b>线下扫码，线上续游</b><span>到达古榕、祠堂、灰塑点位后，可用二维码解锁图文故事与互动任务。</span></div><button className="primary" onClick={() => go("map")}>打开云游地图 →</button></div>
       </section>}
 

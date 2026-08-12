@@ -9,22 +9,10 @@
   z-index: -1;
 }
 .museum .story-card { overflow: hidden; position: relative; }
-.museum .story-card::before {
-  content: "";
-  display: block;
-  height: 210px;
-  margin: -1.55rem -1.55rem 1.1rem;
-  background: center/cover no-repeat;
-  filter: saturate(.8) contrast(.96);
-}
-.museum .story-card:nth-child(1)::before { background-image: linear-gradient(rgba(19,59,49,.1), rgba(19,59,49,.1)), url("/museum-assets/ancient-banyan.png"); }
-.museum .story-card:nth-child(2)::before { background-image: linear-gradient(rgba(19,59,49,.08), rgba(19,59,49,.08)), url("/museum-assets/ancestral-hall.png"); }
-.museum .story-card:nth-child(3)::before { background-image: linear-gradient(rgba(19,59,49,.06), rgba(19,59,49,.06)), url("/museum-assets/gray-plastic-roof.png"); }
-.museum .story-card:nth-child(4)::before { background-image: linear-gradient(rgba(19,59,49,.08), rgba(19,59,49,.08)), url("/museum-assets/lingyang-mountain.png"); }
-.museum .round-icon { margin-top: -2.9rem; position: relative; border: 4px solid #f7f0de; box-shadow: 0 5px 14px rgba(24,59,47,.15); }
-.museum .story-card::after { content: "点击进入文化导览"; margin-top: 16px; padding-top: 12px; width: 100%; border-top: 1px solid rgba(24,61,54,.12); color: #a54e38; font-size: 12px; letter-spacing: .08em; }
+.museum .round-icon { position: relative; border: 4px solid #f7f0de; box-shadow: 0 5px 14px rgba(24,59,47,.15); }
+.museum .story-card::after { content: "展板导览"; margin-top: 16px; padding-top: 12px; width: 100%; border-top: 1px solid rgba(24,61,54,.12); color: #a54e38; font-size: 12px; letter-spacing: .08em; }
 .museum .story-card button { position: relative; z-index: 1; }
-@media (hover: hover) { .museum .story-card { transition: transform .24s ease, box-shadow .24s ease; } .museum .story-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(28,50,39,.13); } .museum .story-card:hover::before { filter: saturate(1.05) contrast(1.03); } }
+@media (hover: hover) { .museum .story-card { transition: transform .24s ease, box-shadow .24s ease; } .museum .story-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(28,50,39,.13); } }
 .museum-guide { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 32px 0 8px; background: #d8cbb8; border: 1px solid #d8cbb8; }
 .museum-guide > div { min-height: 128px; padding: 18px; display: grid; gap: 4px; background: #fffaf0; }
 .museum-guide b { color: #a54e38; font-size: 13px; letter-spacing: .12em; }.museum-guide span { font-weight: 800; font-size: 19px; }.museum-guide small { color: #617068; line-height: 1.55; }
@@ -43,7 +31,12 @@
 .shop .obj-2 { background-image: url("/product-assets/explorer-passport.png"); }
 .shop .obj-3 { background-image: url("/product-assets/postcards-stickers.png"); }
 @media (hover: hover) { .shop .product-card { transition: transform .25s ease, box-shadow .25s ease; } .shop .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(25,53,42,.16); } }
-@media (max-width: 680px) { .museum .story-card::before { height: 170px; } }
+.museum-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 30px 0 20px; }
+.museum-gallery button { text-align: left; padding: 0; overflow: hidden; border: 0; background: #fffaf0; color: #183d36; box-shadow: 0 8px 20px rgba(28,50,39,.1); transition: transform .2s ease, box-shadow .2s ease; }
+.museum-gallery img { display: block; width: 100%; aspect-ratio: .82; object-fit: cover; }.museum-gallery span,.museum-gallery b,.museum-gallery small { display: block; padding: 0 14px; }.museum-gallery span { padding-top: 13px; color: #a54e38; font-size: 12px; letter-spacing: .1em; font-weight: 800; }.museum-gallery b { padding-top: 4px; font-size: 21px; }.museum-gallery small { padding-top: 6px; padding-bottom: 14px; color: #627069; }.museum-gallery button.selected { outline: 3px solid #a54e38; outline-offset: 2px; }.museum-gallery button:hover { transform: translateY(-4px); box-shadow: 0 17px 28px rgba(28,50,39,.16); }
+.story-stage { display: grid; grid-template-columns: .95fr 1.05fr; min-height: 390px; background: #183d36; color: #fff; overflow: hidden; margin-bottom: 36px; }.stage-art { position: relative; min-height: 390px; }.stage-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 45%, #183d36); }.stage-art img { width: 100%; height: 100%; object-fit: cover; display: block; }.stage-art span { position: absolute; left: 22px; bottom: 20px; z-index: 1; width: 54px; height: 54px; display: grid; place-items: center; border: 2px solid rgba(255,255,255,.75); border-radius: 50%; font-weight: 800; font-size: 21px; }.stage-copy { padding: 42px 46px 36px 18px; display: flex; flex-direction: column; align-items: flex-start; }.stage-copy > p { margin: 0; color: #e7b35c; font-size: 13px; letter-spacing: .15em; font-weight: 800; }.stage-copy h3 { margin: 7px 0 17px; font-size: 38px; }.stage-copy strong { color: #d9c9af; font-size: 14px; }.stage-text { color: #e2e8e1; line-height: 1.85; }.stage-text p { margin: 11px 0; }.stage-text p:last-child { color: #f1c474; }.stage-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }.stage-actions .outline { color: #fff; border-color: #91a79b; }
+@media (max-width: 850px) { .museum-gallery { grid-template-columns: repeat(2, 1fr); } .story-stage { grid-template-columns: 1fr; }.stage-art { min-height: 320px; }.stage-art::after { background: linear-gradient(0deg, #183d36, transparent 55%); }.stage-copy { padding: 28px; }.stage-copy h3 { font-size: 32px; } }
+@media (max-width: 520px) { .museum-gallery { gap: 10px; }.museum-gallery b { font-size: 18px; }.museum-gallery span,.museum-gallery b,.museum-gallery small { padding-left: 10px; padding-right: 10px; }.stage-art { min-height: 270px; }.stage-copy { padding: 23px; }.stage-copy h3 { font-size: 29px; } }
 
 .map-page .map-layout { grid-template-columns: minmax(0, 1.2fr) minmax(290px, .8fr); align-items: stretch; }
 .map-page .map-board { min-height: 580px; background: #e8efe3 url("/experience-assets/xiaobu-area-map.png") center / contain no-repeat; border: 8px solid #e9ddc8; border-radius: 18px; box-shadow: 0 18px 38px rgba(54,45,28,.14); }
