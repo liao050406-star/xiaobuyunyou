@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>灰塑寻踪</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-container">
+
+
+    <!-- 01 游戏封面 -->
+    <section id="page-cover" class="page active">
+
+        <img src="01_cover.webp" class="background">
+
+        <div class="cover-button">
+            <button onclick="startGame()">开始探索</button>
+        </div>
+
+    </section>
+
+
+
+    <!-- 02 序章 -->
+    <section id="page-intro" class="page">
+
+        <img src="02_intro_bg.webp" class="background">
+
+        <div class="story-box">
+
+            <h1>灰塑寻踪</h1>
+
+            <p>
+                小㘵村的古建筑中，
+                隐藏着许多寓意吉祥的灰塑瑞兽。
+            </p>
+
+            <p>
+                传说，三种瑞兽共同守护着村落。
+            </p>
+
+            <p>
+                它们分别代表：
+                <strong>福气、祥瑞、长寿。</strong>
+            </p>
+
+            <p>
+                现在，请你寻找它们的真实身份。
+            </p>
+
+            <button onclick="levelOne()">开始寻找</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 第一关 -->
+    <section id="page-level1" class="page">
+
+        <img src="03_level1_bg.webp" class="background">
+
+        <div class="quiz-box">
+
+            <h1>第一关：认识瑞兽</h1>
+
+            <p>
+                第一只守护瑞兽象征“福气”，它是谁？
+            </p>
+
+            <div class="image-choices">
+
+                <div class="choice-card" onclick="chooseLevel1('bat')">
+                    <img src="04_bat.webp">
+                    <span>A · 蝙蝠</span>
+                </div>
+
+                <div class="choice-card" onclick="chooseLevel1('qilin')">
+                    <img src="05_qilin.webp">
+                    <span>B · 麒麟</span>
+                </div>
+
+                <div class="choice-card" onclick="chooseLevel1('crane')">
+                    <img src="06_crane.webp">
+                    <span>C · 仙鹤</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 独立错误页面 -->
+    <section id="page-wrong" class="page">
+
+        <img src="08_level1_wrong.webp" class="background">
+
+        <div class="story-box wrong-story">
+
+            <h1>再观察一下</h1>
+
+            <p id="wrong-message">
+                这个答案似乎还不正确。
+            </p>
+
+            <p>
+                仔细回忆之前获得的文化线索，
+                再重新作出选择。
+            </p>
+
+            <button onclick="retryQuestion()">重新选择</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 第一关成功 -->
+    <section id="page-level1-success" class="page">
+
+        <img src="07_level1_success.webp" class="background">
+
+        <div class="story-box">
+
+            <h1>回答正确！</h1>
+
+            <p>
+                你找到了第一只守护瑞兽——
+                <strong>蝙蝠</strong>。
+            </p>
+
+            <p>
+                在岭南传统文化中，
+                “蝠”与“福”同音，
+                因此蝙蝠常被赋予福气寓意。
+            </p>
+
+            <div class="reward-area">
+
+                <p class="reward-title">获得线索</p>
+
+                <img src="10_fragment_bat.webp" class="reward-img">
+
+                <p><strong>【福纹碎片】</strong></p>
+
+            </div>
+
+            <button onclick="levelTwo()">进入第二关</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 第二关 -->
+    <section id="page-level2" class="page">
+
+        <img src="09_level2_bg.webp" class="background">
+
+        <div class="quiz-box">
+
+            <h1>第二关：灰塑修复</h1>
+
+            <p>
+                你来到一座古老祠堂前。
+                屋脊上的灰塑经历多年风雨，
+                一处守护纹样已经残缺。
+            </p>
+
+            <p>
+                请从三块碎片中，
+                找出能够恢复原有纹样的那一块。
+            </p>
+
+            <div class="image-choices">
+
+                <div class="choice-card" onclick="chooseLevel2('bat')">
+                    <img src="10_fragment_bat.webp">
+                    <span>A · 福纹碎片</span>
+                </div>
+
+                <div class="choice-card" onclick="chooseLevel2('flower')">
+                    <img src="11_fragment_flower.webp">
+                    <span>B · 花叶碎片</span>
+                </div>
+
+                <div class="choice-card" onclick="chooseLevel2('animal')">
+                    <img src="12_fragment_animal.webp">
+                    <span>C · 兽纹碎片</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 第二关成功 -->
+    <section id="page-level2-success" class="page">
+
+        <img src="13_repair_success.webp" class="background">
+
+        <div class="story-box">
+
+            <h1>灰塑修复成功！</h1>
+
+            <p>
+                你将正确的碎片放回缺口，
+                原本残缺的纹样重新完整。
+            </p>
+
+            <p>
+                阳光落在屋脊之上，
+                古老的灰塑重新展现出昔日的模样。
+            </p>
+
+            <p>
+                灰塑不仅是一种建筑装饰，
+                更承载着村民对于幸福、
+                平安与未来的美好祝愿。
+            </p>
+
+            <button onclick="levelThree()">继续探索</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 第三关 -->
+    <section id="page-level3" class="page">
+
+        <img src="14_temple_gate.webp" class="background">
+
+        <div class="quiz-box">
+
+            <h1>第三关：瑞兽守门</h1>
+
+            <p>
+                你来到村中最古老的祠堂。
+            </p>
+
+            <p>
+                门楣上留下三种瑞兽，
+                门旁则刻着一句古老提示：
+            </p>
+
+            <p class="clue-text">
+                “福至祥来，寿满人间。”
+            </p>
+
+            <p>
+                请按照
+                <strong>福气 → 祥瑞 → 长寿</strong>
+                的顺序点击瑞兽。
+            </p>
+
+            <div class="image-choices">
+
+                <div class="choice-card small-card"
+                     onclick="guardianChoose('bat')">
+
+                    <img src="04_bat.webp">
+                    <span>蝙蝠</span>
+
+                </div>
+
+                <div class="choice-card small-card"
+                     onclick="guardianChoose('qilin')">
+
+                    <img src="05_qilin.webp">
+                    <span>麒麟</span>
+
+                </div>
+
+                <div class="choice-card small-card"
+                     onclick="guardianChoose('crane')">
+
+                    <img src="06_crane.webp">
+                    <span>仙鹤</span>
+
+                </div>
+
+            </div>
+
+            <p id="order-text" class="order-text">
+                当前选择：尚未选择
+            </p>
+
+            <button class="secondary-button"
+                    onclick="resetGuardianOrder()">
+                重新排列
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 第三关破解成功 -->
+    <section id="page-gate-success" class="page">
+
+        <img src="16_gate_open.webp"
+             class="background"
+             onerror="this.style.display='none'">
+
+        <div class="story-box">
+
+            <h1>祠堂开启！</h1>
+
+            <p>
+                蝙蝠、麒麟、仙鹤依次对应
+                福气、祥瑞与长寿。
+            </p>
+
+            <p>
+                当最后一只瑞兽被点亮，
+                古老的大门缓缓开启。
+            </p>
+
+            <p>
+                门后没有金银财宝，
+                而是一份保存多年的村落文化记录。
+            </p>
+
+            <button onclick="showFinal()">
+                查看最终发现
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 最终通关 -->
+    <section id="page-final" class="page">
+
+        <img src="17_final_bg.webp" class="background">
+
+        <div class="story-box final-box">
+
+            <h1>恭喜完成探索！</h1>
+
+            <p class="final-quote">
+                “建筑有形，文化有魂。”
+            </p>
+
+            <p>
+                你已经完成小㘵村灰塑文化探索，
+                认识了隐藏在古建筑中的传统文化密码。
+            </p>
+
+            <img src="18_badge_guardian.webp"
+                 class="badge">
+
+            <h2>灰塑守护者</h2>
+
+            <p>
+                获得“小㘵村文化探索者”身份认证。
+            </p>
+
+            <button onclick="showConvert()">
+                继续探索小㘵村
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 最终转化页面 -->
+    <section id="page-convert" class="page">
+
+        <img src="17_final_bg.webp" class="background">
+
+        <div class="story-box final-box">
+
+            <h1>探索并未结束</h1>
+
+            <p>
+                数字世界中的灰塑寻踪已经完成，
+                真实的小㘵村仍等待你的到来。
+            </p>
+
+            <div class="experience-grid">
+
+                <div class="experience-card">
+                    <h3>古村导览</h3>
+                    <p>寻找真实古建筑与灰塑点位</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>灰塑DIY</h3>
+                    <p>亲手体验岭南传统灰塑技艺</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>继续寻迹</h3>
+                    <p>进入下一段互动故事《灵羊镇海》</p>
+                </div>
+
+            </div>
+
+            <button onclick="restartGame()">
+                再玩一次
+            </button>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1066 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>灵羊镇海</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="game-container">
+
+
+
+<!-- =================
+游戏封面
+================= -->
+
+
+<section id="page-cover" class="page active">
+
+
+<img src="01_cover.webp"
+class="background">
+
+
+<div class="center-box">
+
+
+<button onclick="startGame()">
+
+开启传说
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- =================
+序章
+================= -->
+
+
+<section id="page-intro" class="page">
+
+
+<img src="02_intro_bg.webp"
+class="background">
+
+
+
+<div class="story-box">
+
+
+<h1>
+灵羊镇海
+</h1>
+
+
+<h2>
+羚山守护传说
+</h2>
+
+
+
+<p>
+
+很久以前，小㘵村流传着一个传说。
+
+</p>
+
+
+<p>
+
+在村后的羚羊山中，
+沉睡着一只守护山海的灵羊。
+
+</p>
+
+
+<p>
+
+它不会带来财富，
+也不会赐予神力。
+
+</p>
+
+
+<p>
+
+它守护的是：
+
+<br>
+
+山川平安，
+村民安宁。
+
+</p>
+
+
+
+<img src="03_story_scroll.webp"
+class="story-item">
+
+
+
+<button onclick="firstScene()">
+
+进入山中
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =================
+第一幕 水坑望龙
+================= -->
+
+
+<section id="page-water"
+class="page">
+
+
+<img src="04_water_pool_bg.webp"
+class="background">
+
+
+
+<div class="quiz-box">
+
+
+<h1>
+第一幕：水坑望龙
+</h1>
+
+
+<p>
+
+雨后的山路上，
+你发现水坑中的倒影与真实山峰不同。
+
+</p>
+
+
+<p>
+
+老人曾说：
+
+<br>
+
+“灵羊沉睡之地，藏在山影之中。”
+
+</p>
+
+
+<img src="05_water_clue.webp"
+class="clue-img">
+
+
+
+<h3>
+
+你决定：
+
+</h3>
+
+
+<div class="button-group">
+
+
+<button onclick="waterChoice('correct')">
+
+观察水面纹路
+
+</button>
+
+
+<button onclick="waterChoice('wrong')">
+
+寻找山洞
+
+</button>
+
+
+<button onclick="waterChoice('wrong')">
+
+离开这里
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =================
+第一幕错误页面
+================= -->
+
+<section id="page-water-wrong" class="page">
+
+    <img src="07_wrong_water.webp"
+         class="background">
+
+    <div class="story-box">
+
+        <h1>线索偏差</h1>
+
+        <p>
+            你沿着错误的方向继续寻找，
+            却没有发现灵羊留下的痕迹。
+        </p>
+
+        <p class="quote">
+            “真正的线索，藏在山与水的倒影之间。”
+        </p>
+
+        <p>
+            也许你应该重新观察水面。
+        </p>
+
+        <button onclick="firstScene()">
+            重新寻找
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================
+第一幕成功
+================= -->
+
+
+<section id="page-stone"
+class="page">
+
+
+<img src="06_mountain_stone.webp"
+class="background">
+
+
+<div class="story-box">
+
+
+<h1>
+
+发现山纹石片
+
+</h1>
+
+
+
+<p>
+
+你发现水面中的纹路，
+其实是一张通往山顶的地图。
+
+</p>
+
+
+<p>
+
+获得线索：
+
+<br>
+
+【山纹石片】
+
+</p>
+
+
+
+<button onclick="secondScene()">
+
+继续前进
+
+</button>
+
+
+
+</div>
+
+
+</section>
+<!-- =================
+第二幕：废弃庭院
+================= -->
+
+
+<section id="page-courtyard"
+class="page">
+
+
+<img src="08_old_courtyard_bg.webp"
+class="background">
+
+
+
+<div class="quiz-box">
+
+
+<h1>
+第二幕：荒院寻铃
+</h1>
+
+
+
+<p>
+
+你来到一座被藤蔓覆盖的旧庭院。
+
+</p>
+
+
+<p>
+
+这里曾经是村民祭山的地方。
+
+</p>
+
+
+<p>
+
+井边留下了一句话：
+
+</p>
+
+
+<p class="quote">
+
+“守护不是占有，而是陪伴。”
+
+</p>
+
+
+
+<h3>
+
+寻找能够证明山神传说的物品：
+
+</h3>
+
+
+
+<div class="choice-items">
+
+
+
+<div class="item-card"
+onclick="bellChoice('correct')">
+
+
+<img src="09_bronze_bell.webp">
+
+
+<p>
+
+守山铜铃
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="item-card"
+onclick="bellChoice('wrong')">
+
+
+<img src="10_old_lock.webp">
+
+
+<p>
+
+旧铁锁
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="item-card"
+onclick="bellChoice('wrong')">
+
+
+<img src="11_old_branch.webp">
+
+
+<p>
+
+枯树枝
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- =================
+第二幕错误页面
+================= -->
+
+
+<section id="page-bell-wrong"
+class="page">
+
+
+<img src="08_old_courtyard_bg.webp"
+class="background">
+
+
+
+<div class="story-box">
+
+
+<h1>
+
+线索错误
+
+</h1>
+
+
+
+<p>
+
+这件物品虽然来自旧庭院，
+
+</p>
+
+
+<p>
+
+但它并不是山林守护留下的信物。
+
+</p>
+
+
+
+<p class="quote">
+
+真正的守护，
+不是锁住过去，
+而是建立人与自然的联系。
+
+</p>
+
+
+
+<button onclick="secondScene()">
+
+重新寻找
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+<!-- =================
+第二幕成功
+================= -->
+
+
+<section id="page-bell-success"
+class="page">
+
+
+<img src="12_bell_reward.webp"
+class="background">
+
+
+
+<div class="story-box">
+
+
+<h1>
+
+获得守山铜铃
+
+</h1>
+
+
+
+<p>
+
+你发现铜铃并不是召唤神灵的工具。
+
+</p>
+
+
+<p>
+
+它代表的是：
+
+</p>
+
+
+<p class="quote">
+
+人与山林之间的约定。
+
+</p>
+
+
+
+<p>
+
+获得道具：
+
+<br>
+
+【守山铜铃】
+
+</p>
+
+
+
+<button onclick="thirdScene()">
+
+登上山顶
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =================
+第三幕：灵羊问心
+================= -->
+
+<section id="page-choice" class="page">
+
+    <img src="13_mountain_top_bg.webp"
+         class="background">
+
+    <div class="story-box">
+
+        <h1>第三幕：灵羊问心</h1>
+
+        <img src="14_spirit_sheep_statue.webp"
+             class="spirit-sheep">
+
+        <p>
+            你终于来到羚羊山顶。
+        </p>
+
+        <p>
+            沉睡百年的灵羊石像缓缓出现在云雾之间。
+        </p>
+
+        <p>
+            山纹石片与守山铜铃同时产生了回应。
+        </p>
+
+        <p>
+            灵羊问你：
+        </p>
+
+        <p class="quote">
+            “如果你拥有改变村庄未来的力量，
+            你会如何选择？”
+        </p>
+
+        <div class="button-group">
+
+            <button onclick="ending('growth')">
+                让更多游客来到这里，发展村庄
+            </button>
+
+            <button onclick="ending('protect')">
+                保持原样，永远保护这里
+            </button>
+
+            <button onclick="ending('balance')">
+                保护文化，同时开放体验
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================
+结局一：繁盛之路
+================= -->
+
+<section id="page-ending-growth" class="page">
+
+    <img src="20_growth_ending.webp"
+         class="background">
+
+    <div class="story-box">
+
+        <h1>结局一：繁盛之路</h1>
+
+        <p>
+            你选择打开山门，
+            让更多人来到小㘵村。
+        </p>
+
+        <p>
+            古村逐渐热闹起来。
+            民宿、文创和体验项目不断增加，
+            村庄重新焕发生机。
+        </p>
+
+        <p>
+            曾经无人问津的村落，
+            开始被越来越多人看见。
+        </p>
+
+        <p class="quote">
+            “发展带来了新的可能，
+            也带来了新的责任。”
+        </p>
+
+        <p>
+            当游客越来越多，
+            如何保护真正属于村落的文化，
+            成为了新的问题。
+        </p>
+
+        <button onclick="showGrowthBadge()">
+            查看我的结局身份
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================
+结局一证章：逐潮者
+================= -->
+
+<section id="page-badge-growth" class="page">
+
+    <img src="20_growth_ending.webp"
+         class="background">
+
+    <div class="badge-page-box">
+
+        <p class="badge-label">
+            —— 你的结局身份 ——
+        </p>
+
+        <img src="21_growth_badge.webp"
+             class="big-badge">
+
+        <h1>逐潮者</h1>
+
+        <p>
+            你选择拥抱变化，
+            相信发展能够为古村带来新的生命力。
+        </p>
+
+        <p>
+            但真正的“逐潮”，
+            不只是追赶潮流，
+            更需要思考发展的边界。
+        </p>
+
+        <button onclick="showProduct()">
+            完成旅程
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================
+结局二：静守之路
+================= -->
+
+<section id="page-ending-protect" class="page">
+
+    <img src="22_preserve_ending.webp"
+         class="background">
+
+    <div class="story-box">
+
+        <h1>结局二：静守之路</h1>
+
+        <p>
+            你选择关闭通往山林深处的道路，
+            让村庄保持原来的模样。
+        </p>
+
+        <p>
+            古建筑依旧安静，
+            山林也没有受到新的打扰。
+        </p>
+
+        <p>
+            但随着时间流逝，
+            知道这些故事的人越来越少。
+        </p>
+
+        <p class="quote">
+            “保存过去，
+            是否就等于传承过去？”
+        </p>
+
+        <p>
+            你开始意识到，
+            如果文化永远无人知晓，
+            它也可能在安静中逐渐消失。
+        </p>
+
+        <button onclick="showProtectBadge()">
+            查看我的结局身份
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================
+结局二证章：守旧者
+================= -->
+
+<section id="page-badge-protect" class="page">
+
+    <img src="22_preserve_ending.webp"
+         class="background">
+
+    <div class="badge-page-box">
+
+        <p class="badge-label">
+            —— 你的结局身份 ——
+        </p>
+
+        <img src="23_preserve_badge.webp"
+             class="big-badge">
+
+        <h1>守旧者</h1>
+
+        <p>
+            你珍视村落原本的模样，
+            希望尽可能减少外界对它的改变。
+        </p>
+
+        <p>
+            你守住了过去，
+            也留下了一个关于未来的问题。
+        </p>
+
+        <button onclick="showProduct()">
+            完成旅程
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================
+结局三：共生之路
+================= -->
+
+<section id="page-ending-balance" class="page">
+
+    <img src="16_sheep_awaken.webp"
+         class="background">
+
+    <div class="story-box">
+
+        <h1>结局三：灵羊苏醒</h1>
+
+        <p>
+            你没有选择彻底封闭村庄，
+            也没有选择无边界地开发。
+        </p>
+
+        <p>
+            你选择让文化保护与村落发展同行。
+        </p>
+
+        <p>
+            古建筑得到保护，
+            村民参与体验项目，
+            游客通过故事、游戏与真实路线认识这里。
+        </p>
+
+        <p>
+            山纹石片发出微光，
+            守山铜铃第一次响起。
+        </p>
+
+        <p class="quote">
+            “真正的守护，
+            不是停止变化，
+            而是让传承拥有未来。”
+        </p>
+
+        <button onclick="showBalanceBadge()">
+            查看我的结局身份
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================
+结局三证章：灵羊守护者
+================= -->
+
+<section id="page-badge-balance" class="page">
+
+    <img src="16_sheep_awaken.webp"
+         class="background">
+
+    <div class="badge-page-box">
+
+        <p class="badge-label">
+            —— 你的结局身份 ——
+        </p>
+
+        <img src="17_guardian_token.webp"
+             class="big-badge">
+
+        <h1>灵羊守护者</h1>
+
+        <p>
+            你找到了保护与发展之间的平衡。
+        </p>
+
+        <p>
+            让传统文化被看见，
+            让村民真正参与，
+            也让来到这里的人尊重这片土地。
+        </p>
+
+        <p class="quote">
+            灵羊的苏醒不是故事的结束，
+            而是新的守护开始。
+        </p>
+
+        <button onclick="showProduct()">
+            完成旅程
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- =================
+商业转化页
+================= -->
+
+
+<section id="page-product"
+class="page">
+
+
+<img src="19_product_show.webp"
+class="background">
+
+
+
+<div class="story-box">
+
+
+
+<h1>
+
+探索并未结束
+
+</h1>
+
+
+
+<p>
+
+数字故事结束，
+真实的小㘵村仍等待你的到来。
+
+</p>
+
+
+
+<div class="product-list">
+
+
+<div class="product-card">
+
+<h3>
+
+羚羊山徒步
+
+</h3>
+
+<p>
+
+探索真实山水路线
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="product-card">
+
+<h3>
+
+灵羊文创
+
+</h3>
+
+<p>
+
+收藏你的守护印记
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="product-card">
+
+<h3>
+
+继续故事
+
+</h3>
+
+<p>
+
+体验更多村落传说
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<button onclick="restartGame()">
+
+重新体验
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+
+</html>
